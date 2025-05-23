@@ -12,11 +12,11 @@ resource "google_compute_router_nat" "iowanat1" {
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
 
-  nat_ips = [google_compute_address.nat.self_link]
+  nat_ips = [google_compute_address.iowanat1.self_link]
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address
-resource "google_compute_address" "nat" {
+resource "google_compute_address" "iowanat1" {
   name         = "iowanat1"
   address_type = "EXTERNAL"
   network_tier = "PREMIUM"
@@ -37,11 +37,11 @@ resource "google_compute_router_nat" "tokyonat1" {
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
 
-  nat_ips = [google_compute_address.nat.self_link]
+  nat_ips = [google_compute_address.tokyonat1.self_link]
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address
-resource "google_compute_address" "tokyonat1nat" {
+resource "google_compute_address" "tokyonat1" {
   name         = "tokyonat1"
   address_type = "EXTERNAL"
   network_tier = "PREMIUM"
@@ -62,7 +62,7 @@ resource "google_compute_router_nat" "sanpaulonat1" {
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
 
-  nat_ips = [google_compute_address.nat.self_link]
+  nat_ips = [google_compute_address.sanpaulonat1.self_link]
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address
@@ -85,7 +85,7 @@ resource "google_compute_router_nat" "belgiumnat1" {
       name = google_compute_subnetwork.belgiumsubnet1.id
       source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
     }
-    nat_ips = [google_compute_address.nat.self_link]
+    nat_ips = [google_compute_address.belgiumnat1.self_link]
 }
 
 resource "google_compute_address" "belgiumnat1" {
